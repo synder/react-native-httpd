@@ -1,5 +1,5 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.futurepress.staticserver">
+          package="com.reader.httpd">
 
 </manifest>
