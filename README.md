@@ -1,15 +1,15 @@
 
-# react-native-static-server
+# react-native-httpd
 
 A cross platform component for serving static assets with React Native.
 
 ## Getting started
 
-`$ npm install react-native-static-server --save`
+`$ npm install react-native-httpd --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-static-server`
+`$ react-native link react-native-httpd`
 
 ### Manual installation
 
@@ -17,7 +17,7 @@ A cross platform component for serving static assets with React Native.
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-static-server` and add `FPStaticServer.xcodeproj`
+2. Go to `node_modules` ➜ `react-native-httpd` and add `FPStaticServer.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libFPStaticServer.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -28,12 +28,12 @@ A cross platform component for serving static assets with React Native.
   - Add `new FPStaticServerPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-static-server'
-  	project(':react-native-static-server').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-static-server/android')
+  	include ':react-native-httpd'
+  	project(':react-native-httpd').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-httpd/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-static-server')
+      compile project(':react-native-httpd')
   	```
 
 ## Usage
@@ -41,7 +41,7 @@ A cross platform component for serving static assets with React Native.
 Declare the `StaticServer` with a port or use the default `0` to pick a random available port.
 
 ```javascript
-import StaticServer from 'react-native-static-server';
+import StaticServer from 'react-native-httpd';
 
 let server = new StaticServer(8080);
 
@@ -61,7 +61,7 @@ For instance, using [react-native-fs](https://github.com/johanneslumpe/react-nat
 #### Default (document directory)
 
 ```javascript
-import StaticServer from 'react-native-static-server';
+import StaticServer from 'react-native-httpd';
 import RNFS from 'react-native-fs';
 
 // create a path you want to write to
@@ -85,7 +85,7 @@ In XCode, `Project Navigator` right click in the folder project → `Add files t
 When the app gets bundled, this folder will be next to the compiled app, so using `MainBundlePath` property from `react-native-fs` you can access to the directory.
 
 ```javascript
-import StaticServer from 'react-native-static-server';
+import StaticServer from 'react-native-httpd';
 import RNFS from 'react-native-fs';
 
 // path where files will be served from (index.html here)
@@ -97,7 +97,7 @@ let server = new StaticServer(8080, path);
 If the server should only be accessible from within the app, set `localOnly` to `true`
 
 ```javascript
-import StaticServer from 'react-native-static-server';
+import StaticServer from 'react-native-httpd';
 
 // Just set options with defaults
 let server = new StaticServer({localOnly : true });
